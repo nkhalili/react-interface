@@ -66,3 +66,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Additional libraries
+
+```powershell
+    npm i -s bootstrap react-icons lodash jquery popper.js moment react-moment
+```
