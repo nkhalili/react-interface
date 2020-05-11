@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/App.css';
 import AddAppointments from './AddAppointments'
+import ListAppointments from './ListAppointments'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
             <div className="container">
               <AddAppointments />
               <div>Search Appointments</div>
-              <div>List Appointments</div>
+              <ListAppointments />
             </div>
           </div>
         </div>
