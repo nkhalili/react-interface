@@ -11,7 +11,9 @@ class App extends React.Component {
     super()
     this.state = {
       myAppointments: [],
-      formDisplay: false
+      formDisplay: false,
+      orderBy: 'petName',
+      orderDir: 'asc'
     }
   }
 
@@ -27,7 +29,7 @@ class App extends React.Component {
 
     this.setState({
       myAppointments: tempApts,
-      
+
     })
   }
 
@@ -55,6 +57,25 @@ class App extends React.Component {
   }
 
   render(){
+
+    let order
+    let filteredApts = this.state.myAppointments
+
+    if(this.state.orderDir === 'asc') {
+      order = 1
+    } else {
+      order = -1
+    }
+
+    filteredApts.sort((a, b) => {
+      if(a[this.state.orderBy].toLowerCase() <
+         b[this.state.orderBy].toLowerCase()) {
+          return -1 * order
+        } else {
+          return 1 * order
+        }
+    })
+
     return (
       <main className="page bg-white" id="petratings">
         <div className="container">
@@ -64,7 +85,7 @@ class App extends React.Component {
                 <AddAppointments formDisplay={this.state.formDisplay} toggleForm={this.toggleForm}
                   addAppointment={this.addAppointment} />
                 <SearchAppointments />
-                <ListAppointments appointments={this.state.myAppointments}
+                <ListAppointments appointments={filteredApts}
                   deleteAppointment={this.deleteAppointment} />
               </div>
             </div>
