@@ -21,6 +21,16 @@ class App extends React.Component {
     })
   } 
   
+  addAppointment = (apt) => {
+    let tempApts = this.state.myAppointments
+    tempApts.unshift(apt)
+
+    this.setState({
+      myAppointments: tempApts,
+      
+    })
+  }
+
   deleteAppointment = (apt) => {
     let tempApts = this.state.myAppointments
     tempApts = without(tempApts, apt)
@@ -51,7 +61,8 @@ class App extends React.Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                <AddAppointments formDisplay={this.state.formDisplay} toggleForm={this.toggleForm} />
+                <AddAppointments formDisplay={this.state.formDisplay} toggleForm={this.toggleForm}
+                  addAppointment={this.addAppointment} />
                 <SearchAppointments />
                 <ListAppointments appointments={this.state.myAppointments}
                   deleteAppointment={this.deleteAppointment} />
