@@ -3,6 +3,7 @@ import '../css/App.css';
 import AddAppointments from './AddAppointments'
 import ListAppointments from './ListAppointments'
 import SearchAppointments from './SearchAppointments'
+import { without } from 'lodash'
 
 class App extends React.Component {
 
@@ -11,6 +12,15 @@ class App extends React.Component {
     this.state = {
       myAppointments: []
     }
+  }
+
+  deleteAppointment = (apt) => {
+    let tempApts = this.state.myAppointments
+    tempApts = without(tempApts, apt)
+
+    this.setState({
+      myAppointments: tempApts
+    })
   }
 
   componentDidMount() {
@@ -36,7 +46,8 @@ class App extends React.Component {
               <div className="container">
                 <AddAppointments />
                 <SearchAppointments />
-                <ListAppointments appointments={this.state.myAppointments} />
+                <ListAppointments appointments={this.state.myAppointments}
+                  deleteAppointment={this.deleteAppointment} />
               </div>
             </div>
           </div>
