@@ -10,10 +10,17 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      myAppointments: []
+      myAppointments: [],
+      formDisplay: false
     }
   }
 
+  toggleForm = () => {
+    this.setState({
+      formDisplay: !this.state.formDisplay
+    })
+  } 
+  
   deleteAppointment = (apt) => {
     let tempApts = this.state.myAppointments
     tempApts = without(tempApts, apt)
@@ -44,7 +51,7 @@ class App extends React.Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                <AddAppointments />
+                <AddAppointments formDisplay={this.state.formDisplay} toggleForm={this.toggleForm} />
                 <SearchAppointments />
                 <ListAppointments appointments={this.state.myAppointments}
                   deleteAppointment={this.deleteAppointment} />
