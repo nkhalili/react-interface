@@ -17,6 +17,13 @@ class App extends React.Component {
     }
   }
 
+  changeOrder = (order, dir) => {
+    this.setState({
+      orderBy: order,
+      orderDir: dir
+    })
+  }
+
   toggleForm = () => {
     this.setState({
       formDisplay: !this.state.formDisplay
@@ -84,7 +91,8 @@ class App extends React.Component {
               <div className="container">
                 <AddAppointments formDisplay={this.state.formDisplay} toggleForm={this.toggleForm}
                   addAppointment={this.addAppointment} />
-                <SearchAppointments orderBy={this.state.orderBy} orderDir={this.state.orderDir} />
+                <SearchAppointments orderBy={this.state.orderBy} orderDir={this.state.orderDir} 
+                  changeOrder={this.changeOrder}/>
                 <ListAppointments appointments={filteredApts}
                   deleteAppointment={this.deleteAppointment} />
               </div>

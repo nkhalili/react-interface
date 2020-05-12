@@ -27,32 +27,42 @@ class SearchAppointments extends Component {
                 <button className={
                   'sort-by dropdown-item ' +
                   (this.props.orderBy === 'petName' ? 'active' : '')
-                  } href="#">
+                  } 
+                  href="#" 
+                  onClick={() => this.props.changeOrder('petName', this.props.orderDir)}>
                   Pet Name
                 </button>
                 <button className={
                   'sort-by dropdown-item ' +
                   (this.props.orderBy === 'aptDate' ? 'active' : '')
-                  } href="#">
+                  } 
+                  href="#" 
+                  onClick={() => this.props.changeOrder('aptDate', this.props.orderDir)}>
                   Date
                 </button>
                 <button className={
                   'sort-by dropdown-item ' +
                   (this.props.orderBy === 'ownerName' ? 'active' : '')
-                  } href="#">
+                  } 
+                  href="#" 
+                  onClick={() => this.props.changeOrder('ownerName', this.props.orderDir)}>
                   Owner
                 </button>
                 <div role="separator" className="dropdown-divider" />
                 <button className={
                   'sort-by dropdown-item ' +
                   (this.props.orderDir === 'asc' ? 'active' : '')
-                  } href="#">
+                  } 
+                  href="#" 
+                  onClick={() => this.props.changeOrder(this.props.orderBy, 'asc')}>
                   Asc
                 </button>
                 <button className={
                   'sort-by dropdown-item ' +
                   (this.props.orderDir === 'desc' ? 'active' : '')
-                  } href="#">
+                  } 
+                  href="#" 
+                  onClick={() => this.props.changeOrder(this.props.orderBy, 'desc')}>
                   Desc
                 </button>
               </div>
