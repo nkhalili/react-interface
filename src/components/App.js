@@ -4,7 +4,16 @@ import AddAppointments from './AddAppointments'
 import ListAppointments from './ListAppointments'
 import SearchAppointments from './SearchAppointments'
 
-function App() {
+class App extends React.Component {
+
+  constructor(){
+    super()
+    this.state = {
+      myName: 'Ray'
+    }
+  }
+
+  render(){
   return (
     <main className="page bg-white" id="petratings">
       <div className="container">
@@ -19,7 +28,7 @@ function App() {
         </div>
       </div>
     </main>
-  );
+  )}
 }
 
 export default App;
